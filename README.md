@@ -116,6 +116,10 @@ Or with pip:
 pip install uv
 ```
 
+## Disclaimer
+
+This is an unofficial tool and is not affiliated with or endorsed by IBM. This tool parses publicly available APAR information from IBM support pages for convenience purposes only. Users are responsible for complying with IBM's terms of service and acceptable use policies when using this tool.
+
 ## Acknowledgments
 
 Special thanks to *Tom Tsai*, the original author of this function.
