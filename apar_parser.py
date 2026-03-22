@@ -303,6 +303,9 @@ examples:
   process a single APAR:
     apar-parser -a OA41368 -o output_dir
 
+  process multiple APARs:
+    apar-parser -a OA41368 OA36415 OA12345 -o output_dir
+
   output in JSON format:
     apar-parser -i apar_list.txt -o output_dir -f json
 
@@ -327,7 +330,8 @@ output files:
     parser.add_argument('-o', '--output', type=Path,
                         help='output directory where results will be saved (required unless using --gui)')
     parser.add_argument('-a', '--apar',
-                        help='single APAR number to process (e.g. OA41368)')
+                        nargs='+',
+                        help='one or more APAR numbers to process (e.g. -a OA41368 OA36415)')
     parser.add_argument('-f', '--format', choices=['txt', 'json'], default='txt',
                         help='output format: txt (default) or json for structured data')
     parser.add_argument('--gui', action='store_true',
@@ -369,7 +373,8 @@ output files:
     apar_parser = APARParser(args.output, args.format)
     
     if args.apar:
-        apar_parser.process_apar(args.apar)
+        for apar in args.apar:
+            apar_parser.process_apar(apar)
     else:
         apar_parser.process_file(args.input)
 
