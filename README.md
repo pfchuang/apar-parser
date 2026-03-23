@@ -33,9 +33,13 @@ pip install .
 apar-parser -i apar_list.txt -o output_dir
 ```
 
-### Process single APAR
+### Process one or more APARs
 ```bash
+# Single APAR
 apar-parser -a OA41368 -o output_dir
+
+# Multiple APARs
+apar-parser -a OA41368 OA36415 OA12345 -o output_dir
 ```
 
 ### Output formats
@@ -93,7 +97,7 @@ Creates JSON files with structured data:
 
 - `-i, --input`: Input file with APAR numbers (one per line)
 - `-o, --output`: Output directory (required unless using --gui)
-- `-a, --apar`: Single APAR number to process
+- `-a, --apar`: One or more APAR numbers to process (e.g. `-a OA41368 OA36415`)
 - `-f, --format`: Output format: `txt` or `json` (default: txt)
 - `--gui`: Use GUI for file selection (Windows only, requires tkinter)
 
